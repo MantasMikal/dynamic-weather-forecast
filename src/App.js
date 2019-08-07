@@ -27,7 +27,7 @@ class App extends React.Component {
 
   getCurrentWeather = async location => {
     const KEY = '8c295ee8b00a45289d29e5130748efe5'
-    const API = `http://api.weatherbit.io/v2.0/forecast/daily?city=${location}&key=${KEY}`
+    const API = `https://api.weatherbit.io/v2.0/forecast/daily?city=${location}&key=${KEY}`
     const res = await fetch(API)
     const data = await res.json()
     const isRaining = data.data[0].pop > 60 ? true : false
