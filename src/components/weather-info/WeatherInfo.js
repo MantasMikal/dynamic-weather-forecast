@@ -13,7 +13,7 @@ export default function WeatherInfo(props) {
   const current = props.forecast[0] // Current day
   let weekForecast = [] // Store other week days forecast
   const howManyDays = 2 // How many days of it
-
+  console.log(forecast)
   for (let i = 1; i <= howManyDays; i++) {
     weekForecast.push(
       <span key={`weekDayForecast-${i}`}>

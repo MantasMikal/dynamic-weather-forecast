@@ -99,7 +99,7 @@ function Clouds(props) {
 }
 
 export default function WeatherPreview(props) {
-  const { cloudCount, isDay, isSnowing } = props
+  const { cloudCount, isDay, isSnowing } = props.weatherDetails
   return (
     <div
       className={
@@ -116,7 +116,5 @@ export default function WeatherPreview(props) {
 
 
 WeatherPreview.propTypes = {
-  cloudCount: PropTypes.number,
-  isDay: PropTypes.bool,
-  isSnowing: PropTypes.bool
+  weatherDetails: PropTypes.object
 }
