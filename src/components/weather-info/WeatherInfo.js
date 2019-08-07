@@ -27,8 +27,8 @@ export default function WeatherInfo(props) {
             <div className={styles.location}>{props.location}</div>
             <div className={styles.weatherDetailsWrapper}>
                 <div className={styles.weatherDetails}>
-                    <span>Wind: {current.wind_cdir} {Math.round(current.wind_spd)}km/h<span role="img">💨</span></span>
-                    <span>Humidity: {current.rh}%<span role="img">💧</span></span>
+                    <span>Wind: {current.wind_cdir} {Math.round(current.wind_spd)}km/h <span role="img" aria-label="Wind">💨</span></span>
+                    <span>Humidity: {current.rh}% <span role="img" aria-label="Humidity">💧</span></span>
                 </div>
                 <div className={styles.weatherDays}>
                     {weekForecast}
