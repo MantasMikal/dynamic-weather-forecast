@@ -4,14 +4,12 @@ import WeatherInfo from './components/weather-info/WeatherInfo'
 import LocationInput from './components/location-input/LocationInput'
 import styles from './App.module.scss'
 
-
 class App extends React.Component {
   constructor(props) {
     super(props)
-  
+
     this.state = {
       location: 'Kings Langley',
-      isLoading: true,
       forecast: null,
       isRaining: false,
       isDay: true,
@@ -21,13 +19,13 @@ class App extends React.Component {
     }
   }
 
-  handleLocationChange = async (e) => {
+  handleLocationChange = async e => {
     e.preventDefault()
     const location = e.target[0].value
     this.getCurrentWeather(location)
   }
 
-  getCurrentWeather = async (location) => {
+  getCurrentWeather = async location => {
     const KEY = '8c295ee8b00a45289d29e5130748efe5'
     const API = `http://api.weatherbit.io/v2.0/forecast/daily?city=${location}&key=${KEY}`
     const res = await fetch(API)
@@ -46,55 +44,70 @@ class App extends React.Component {
       isSnowing: isSnowing,
       time: time
     })
-    
+
     return data // TODO Delete if not going to be use
   }
-  
+
   async componentDidMount() {
     this.getCurrentWeather(this.state.location)
 
     // TODO
     // Is cloudy?
-    this.setState({
-        isLoading: false
-    })
   }
 
   // Find out if it is day or night based on timezone
-  isDay = (timeZone) => {
+  isDay = timeZone => {
     let options = {
-      timeZone: timeZone,
-      hour: 'numeric'
-    }, formatter = new Intl.DateTimeFormat([], options)
-    
+        timeZone: timeZone,
+        hour: 'numeric'
+      },
+      formatter = new Intl.DateTimeFormat([], options)
+
     const hours = formatter.format(new Date())
-    return hours > 6 && hours < 18? true : false
+    return hours > 6 && hours < 18 ? true : false
   }
 
-
   //Gets current time based on timezone
-  getCurrentTime = (timezone) => {
+  getCurrentTime = timezone => {
     let options = {
-      timeZone: timezone,
-      hour: 'numeric',
-      minute: 'numeric'
-    }, formatter = new Intl.DateTimeFormat([], options)
-    
+        timeZone: timezone,
+        hour: 'numeric',
+        minute: 'numeric'
+      },
+      formatter = new Intl.DateTimeFormat([], options)
+
     const time = formatter.format(new Date())
     return time
   }
-  
-  render () {
-    const { forecast, isLoading, isRaining, isDay, cloudCount, location, isSnowing, time} = this.state 
 
-    return forecast && (
-      <div className={styles.root}>
-        <LocationInput handleLocationChange={this.handleLocationChange} />
-        <WeatherPreview isRaining={isRaining} isDay={isDay} cloudCount={cloudCount} isSnowing={isSnowing} />
-        {forecast && !isLoading && <WeatherInfo forecast={forecast} location={location} time={time} />}    
-      </div>
-    );
+  render() {
+    const {
+      forecast,
+      isRaining,
+      isDay,
+      cloudCount,
+      location,
+      isSnowing,
+      time
+    } = this.state
+
+    return (
+      forecast && (
+        <div className={styles.root}>
+          <LocationInput handleLocationChange={this.handleLocationChange} />
+          <WeatherPreview
+            isRaining={isRaining}
+            isDay={isDay}
+            cloudCount={cloudCount}
+            isSnowing={isSnowing}
+          />
+          {forecast && (
+            <WeatherInfo forecast={forecast} location={location} time={time} />
+          )}
+        </div>
+      )
+    )
   }
 }
 
-export default App;
+export default App

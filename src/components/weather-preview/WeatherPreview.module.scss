@@ -199,6 +199,8 @@
 
 }
 
+// Hills
+
 .hillBg1 {
     position: absolute;
     z-index: 2;
@@ -289,6 +291,8 @@
         background-color: $hillFgColorDay;
     }
 }
+
+// Animtions
 
 @keyframes drop {
     0% {
