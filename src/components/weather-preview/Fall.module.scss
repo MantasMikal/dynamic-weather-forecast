@@ -1,0 +1,67 @@
+
+@import '../../styles/vars.module.scss';
+@for $i from 1 through 12 {
+  .fallSmall#{$i} {
+      position: absolute;
+      z-index: 20;
+      height: 0;
+      width: 1%;
+      padding-top: 1%;
+      background: $fallColor;
+      border-radius: 50%;
+      left: (10 * $i) + vw;
+      top: -5%;
+      animation: drop (2.7 + random(2) / 100) + s linear (random(30) / 25) + s infinite;
+
+      .snowing & {
+          background-color: $snowColor;
+      }
+  }
+
+  .fallBig#{$i} {
+      position: absolute;
+      z-index: 20;
+      height: 0;
+      width: 1.5%;
+      padding-top: 1.5%;
+      background: $fallColor;
+      border-radius: 50%;
+      top: -5%;
+      left: (10 * $i) + vw;
+      animation: drop (0.7 + random(2) / 100) + s linear (random(30) / 25) + s infinite;
+
+      .snowing & {
+          background-color: $snowColor;
+      }
+  }
+
+  .fallMed#{$i} {
+      position: absolute;
+      z-index: 20;
+      height: 0;
+      width: 1.2%;
+      padding-top: 1.2%;
+      background: $fallColor;
+      border-radius: 50%;
+      top: -5%;
+      left: (10 * $i) + vw;
+      animation: drop (1.7 + random(2) / 100) + s linear (random(30) / 25) + s infinite;
+
+      .snowing & {
+          background-color: $snowColor;
+      }
+  }
+}
+
+
+@keyframes drop {
+  0% {
+      transform: translate3d(10vw,-20vh,0) scaleX(1) scaleY(1) rotate(17deg);
+  }
+  85% {
+      transform: translate3d(0, 95vh,0) scaleX(1) scaleY(1) rotate(17deg);
+  }
+  100% {
+      transform: translate3d(0,95vh,0) scaleX(3) scaleY(0) rotate(0deg);
+  }
+}

@@ -1,0 +1,23 @@
+
+@import '../../styles/vars.module.scss';
+.sun {
+  position: absolute;
+  left: 15%;
+  top: 5%;
+  width: 20%;
+  box-shadow: 0 0 12px 0 $sunColor;
+  background: $sunColor;
+  border-radius: 50%;
+  padding-top: 20%;
+  animation: rise 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes rise {
+  0% {
+      transform: translate(-10vw, 100vw)
+  } 
+  100% {
+      transform: translate(0vw, 0vw)
+  }
+}
+

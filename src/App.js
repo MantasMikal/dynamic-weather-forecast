@@ -36,7 +36,7 @@ function App () {
     const data = await res.json()
     const isRaining = data.data[0].pop > 60 ? true : false
     const cloudCount = data.data[0].clouds / 10
-    const isSnowing = data.data[0].snow > 100 && isRaining // Check if there is snow and it is raining
+    const isSnowing = data.data[0].snow > 100 && isRaining // Check if there is snow and it is falling
     const time = getCurrentTime(data.timezone)
     const isDay = getIsDay(data.timezone)
     

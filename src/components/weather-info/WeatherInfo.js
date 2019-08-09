@@ -50,7 +50,6 @@ export default function WeatherInfo(props) {
   )
 }
 
-
 WeatherInfo.propTypes = {
   forecast: PropTypes.array,
   time: PropTypes.string

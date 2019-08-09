@@ -1,0 +1,88 @@
+
+@import '../../styles/vars.module.scss';
+.moon {
+  position: absolute;
+  left: 15%;
+  top: 5%;
+  width: 20%;
+
+  background: $moonColor;
+  box-shadow: 0 0 12px 0 $moonColor;
+  border-radius: 50%;
+  padding-top: 20%;
+  animation: rise 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .crater1{
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      background: $moonCraterColor;
+      width: 10%;
+      border-radius: 50%;
+      padding-top: 10%;
+  }
+
+  .crater2 {
+      @extend .crater1;
+      width: 5%;
+      padding-top: 5%;
+      top: 30%;
+      left: 25%;
+  }
+
+  .crater3 {
+      @extend .crater1;
+      width: 5%;
+      padding-top: 5%;
+      top: 35%;
+      left: 20%;
+  }
+
+  .crater4 {
+      @extend .crater1;
+      width: 15%;
+      padding-top: 15%;
+      top: 70%;
+      left: 50%;
+  }
+
+  .crater5 {
+      @extend .crater1;
+      width: 5%;
+      padding-top: 5%;
+      top: 70%;
+      left: 40%;
+  }
+
+  .crater6 {
+      @extend .crater1;
+      width: 4%;
+      padding-top: 4%;
+      top: 60%;
+      left: 70%;
+  }
+
+  .crater7 {
+      @extend .crater1;
+      width: 7%;
+      padding-top: 7%;
+      top: 80%;
+      left: 40%;
+  }
+
+  .crater8 {
+      @extend .crater1;
+      width: 7%;
+      padding-top: 7%;
+      top: 40%;
+      left: 60%;
+  }
+
+  .crater9 {
+      @extend .crater1;
+      width: 7%;
+      padding-top: 7%;
+      top: 30%;
+      left: 80%;
+  }
+
+}

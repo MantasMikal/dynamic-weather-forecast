@@ -1,0 +1,43 @@
+@import '../../styles/vars.module.scss';
+
+@mixin randomRotate() {
+  $willRotate: random(3);
+  @if $willRotate == 1 {
+      transform: rotateZ(180deg)
+  } @else {
+      transform: rotateZ(0deg)
+  }
+}
+
+// Clouds
+
+@for $i from 1 through 10 {
+  .cloud1-#{$i} {
+      position: absolute;
+      display: inline-block;
+      animation: cloudMove1 (random(60) + 55) + s linear 0s infinite;
+      left: (random(100) - 80) + vw;
+      width: (random(20) + 5) + vw;
+      top: random((20) + 1) + vh;
+      @include randomRotate();
+  }
+
+  .cloud2-#{$i} {
+      position: absolute;
+      display: inline-block;
+      animation: cloudMove1 (random(60) + 55) + s linear 0s infinite;
+      left: (random(100) - 80) + vw;
+      width: (random(30) + 10) + vw;
+      top: random((20) + 1) + vh;
+      @include randomRotate();
+  }
+}
+
+@keyframes cloudMove1 {
+  0% {
+      transform: translateX(-40vw);
+  }
+  100% {
+     transform: translateX(160vw);
+  } 
+}
