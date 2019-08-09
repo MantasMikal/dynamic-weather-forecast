@@ -28,7 +28,7 @@ export default function WeatherInfo(props) {
     <div className={styles.wrapper}>
       <div className={styles.temperature}>{current.temp}°</div>
       <div className={styles.day}>
-        {time}, {getDayName(current.datetime)}
+        {getDayName(current.datetime)}, {time}
       </div>
       <div className={styles.location}>{props.location}</div>
         <div className={styles.weatherDetails}>
